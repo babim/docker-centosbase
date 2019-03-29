@@ -25,4 +25,6 @@ EXPOSE 22
 CMD ["/usr/sbin/runssh.sh"]
 
 ENV LC_ALL en_US.UTF-8
+# Set timezone to VN
 ENV TZ Asia/Ho_Chi_Minh
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
