@@ -17,3 +17,6 @@ CMD ["/startup.sh"]
 
 # Expose ports.
 EXPOSE 5901
+# Set timezone to VN
+ENV TZ Asia/Ho_Chi_Minh
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
