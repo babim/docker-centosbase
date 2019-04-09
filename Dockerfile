@@ -1,7 +1,8 @@
 FROM babim/centosbase:6
 
-RUN yum install -y wget bash && cd / && wget --no-check-certificate https://raw.githubusercontent.com/babim/docker-tag-options/master/z%20SCRIPT%20AUTO/option.sh && \
-    chmod 755 /option.sh && yum remove -y wget
+# option run
+RUN curl -Ls https://raw.githubusercontent.com/babim/docker-tag-options/master/z%20SCRIPT%20AUTO/option.sh -o /option.sh && \
+    chmod 755 /option.sh
 
 RUN yum -y groupinstall "Desktop" "Desktop Platform" "X Window System" "Fonts" && \
     yum install gedit file-roller firefox nano iputils tigervnc-server -y && \
