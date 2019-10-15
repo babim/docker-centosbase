@@ -1,4 +1,4 @@
-FROM i386/centos:7
+FROM i386/centos:8
 # Maintainer
 # ----------
 MAINTAINER babim <babim@matmagoc.com>
