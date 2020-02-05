@@ -4,7 +4,9 @@ FROM babim/centosbase:6
 RUN curl -Ls https://raw.githubusercontent.com/babim/docker-tag-options/master/z%20SCRIPT%20AUTO/option.sh -o /option.sh && \
     chmod 755 /option.sh
 
-RUN yum install epel-release -y && yum -y groupinstall "Desktop" "Desktop Platform" "X Window System" "Fonts" && \
+RUN yum install wget -y && wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm && \
+    rpm -ivh epel-release-latest-6.noarch.rpm && rm -f epel-release-latest-6.noarch.rpm && \
+    yum -y groupinstall "Desktop" "Desktop Platform" "X Window System" "Fonts" && \
     yum install gedit file-roller firefox nano iputils tigervnc-server -y && \
     yum clean all
 
