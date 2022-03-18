@@ -3,6 +3,10 @@ FROM centos:8
 # ----------
 MAINTAINER babim <babim@matmagoc.com>
 
+# change mirror
+RUN cd /etc/yum.repos.d/ && sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-* && \
+	sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+
 RUN yum install curl nano bash openssh-server -y
 
 # copyright and timezone
